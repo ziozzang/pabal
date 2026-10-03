@@ -1,0 +1,47 @@
+{
+  "smtp_listen": "127.0.0.1:12525",
+  "admin_listen": "127.0.0.1:16882",
+  "admin_allow_cidrs": [
+    "127.0.0.1/32",
+    "::1/128"
+  ],
+  "domain": "pabal.local",
+  "mode": "relay",
+  "access": {
+    "allow_cidrs": [
+      "127.0.0.1/32",
+      "::1/128"
+    ],
+    "deny_cidrs": []
+  },
+  "allowed_senders": [
+    "sender@example.com"
+  ],
+  "targets": {
+    "allow": [
+      "recipient@example.com"
+    ],
+    "deny": [],
+    "denied_action": "reject"
+  },
+  "upstreams": [
+    {
+      "name": "sendgrid",
+      "address": "smtp.sendgrid.net:587",
+      "tls": "starttls",
+      "auth": {
+        "type": "plain",
+        "username_env": "SENDGRID_USERNAME",
+        "password_env": "SENDGRID_SMTP_PASSWORD"
+      }
+    }
+  ],
+  "routes": [],
+  "default_upstream": "sendgrid",
+  "limits": {
+    "max_message_bytes": 26214400,
+    "max_recipients": 50,
+    "max_connections": 20,
+    "timeout_seconds": 60
+  }
+}

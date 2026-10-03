@@ -1,0 +1,32 @@
+{
+  "smtp_listen": "127.0.0.1:12525",
+  "admin_listen": "127.0.0.1:16882",
+  "admin_allow_cidrs": [
+    "127.0.0.1/32",
+    "::1/128"
+  ],
+  "domain": "pabal.local",
+  "mode": "discard",
+  "access": {
+    "allow_cidrs": [
+      "127.0.0.1/32",
+      "::1/128"
+    ],
+    "deny_cidrs": []
+  },
+  "allowed_senders": [],
+  "targets": {
+    "allow": [],
+    "deny": [],
+    "denied_action": "reject"
+  },
+  "upstreams": [],
+  "routes": [],
+  "default_upstream": "",
+  "limits": {
+    "max_message_bytes": 26214400,
+    "max_recipients": 50,
+    "max_connections": 20,
+    "timeout_seconds": 60
+  }
+}
